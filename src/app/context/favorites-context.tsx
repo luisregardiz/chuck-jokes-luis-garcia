@@ -18,7 +18,7 @@ const FavoritesContext = createContext<FavoriteJokesContextType | undefined>(
 );
 
 const LOCAL_STORAGE_KEY = process.env
-    .NEXT_PUBLIC_CHUCK_NORRIS_LOCAL_STORAGE_KEY as string;
+    .NEXT_PUBLIC_CHUCK_NORRIS_FAVORITES_LOCAL_STORAGE_KEY as string;
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     const [favorites, setFavorites] = useState<ChuckNorrisJoke[]>([]);
