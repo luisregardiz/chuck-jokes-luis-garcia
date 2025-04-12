@@ -33,8 +33,8 @@ export const Navbar: FC = () => {
     const { favorites } = useFavorites();
     const { ratedJokes } = useRate();
     return (
-        <header className="relative">
-            <nav className="h-20 flex items-center justify-center fixed top-0 w-full">
+        <header className="relative ">
+            <nav className="h-20 bg-white dark:bg-black  flex items-center justify-center fixed top-0 w-full">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="dark:text-white text-black font-bold">
                         <Link href="/" className="flex items-center uppercase ">
