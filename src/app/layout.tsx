@@ -14,11 +14,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
     title: "Chuck Norris Random Joke",
     description: "Get a random Chuck Norris joke",
-    icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon.ico",
-        apple: "/favicon.ico",
-    },
 };
 
 export default function RootLayout({
