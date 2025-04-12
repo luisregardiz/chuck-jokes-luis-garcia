@@ -3,17 +3,24 @@
 import { useFavorites } from "./context/favorites-context";
 import { useRate } from "./context/rate-context";
 import useFetch from "./hooks/useFetch";
+import { CardJoke } from "./components/card/card-joke";
 
 export default function Home() {
     const { data, loading, error, refetch } = useFetch(
         process.env.NEXT_PUBLIC_CHUCK_NORRIS_API_URL as string
     );
-    const { addFavorite } = useFavorites();
+    const { addFavorite, removeFavorite, favorites } = useFavorites();
     const { rateJoke, ratedJokes } = useRate();
 
     const handleAddFavorite = () => {
         if (data && data.value) {
             addFavorite(data as ChuckNorrisJoke);
+        }
+    };
+
+    const handleRemoveFavorite = () => {
+        if (data && data.value) {
+            removeFavorite(data as ChuckNorrisJoke);
         }
     };
 
@@ -32,42 +39,30 @@ export default function Home() {
 
     const rate = Array.from({ length: 5 }, (_, i) => i + 1);
 
+    const isFavorite = favorites.some((joke) => joke.id === data.id);
+
     return (
-        <div>
-            <div className="mt-4">Chuck Norris Joke</div>
-            <div className="mt-4">
-                {loading && <p>Loading...</p>}
-                {error && <p>{error}</p>}
-                {data && !loading && (
-                    <div>
-                        <div className="flex flex-col ">
-                            <h2 className="text-xl font-semibold">
-                                {data.value}
-                            </h2>
-                            <div>
-                                <button onClick={handleAddFavorite}>
-                                    Add to favorite
-                                </button>
-                            </div>
-                            <div className="flex gap-2 mt-4">
-                                {rate.map((r) => (
-                                    <button
-                                        key={r}
-                                        className={` ${
-                                            jokeRateValue === r &&
-                                            "bg-blue-500 text-white"
-                                        } border border-gray-300 rounded px-2 py-1 hover:bg-blue-500 hover:text-white cursor-pointer transition duration-200`}
-                                        onClick={() => handleRateJoke(r)}
-                                    >
-                                        {r}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                )}
-                <button onClick={refetch}>Generate new joke</button>
+        <section className="max-w-2xl mx-auto ">
+            <div className="h-screen flex flex-col justify-center items-center">
+                <CardJoke
+                    rate={rate}
+                    data={data}
+                    loading={loading}
+                    error={error}
+                    handleAddFavorite={handleAddFavorite}
+                    handleRateJoke={handleRateJoke}
+                    handleRemoveFavorite={handleRemoveFavorite}
+                    jokeRateValue={jokeRateValue}
+                    isFavorite={isFavorite}
+                />
+
+                <button
+                    onClick={refetch}
+                    className="bg-neutral-100  font-semibold dark:bg-neutral-800 text-neutral-950 dark:text-neutral-50 rounded-full px-4 py-2 mt-4 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition duration-200 cursor-pointer"
+                >
+                    Generate new joke
+                </button>
             </div>
-        </div>
+        </section>
     );
 }
