@@ -18,7 +18,10 @@ This project is a web application that displays Chuck Norris jokes. It is built 
 3. **Create a `.env` file** in the root directory and add your API key:
     ```bash
     NEXT_PUBLIC_CHUCK_NORRIS_API_URL=your_api_url_here
-    NEXT_PUBLIC_CHUCK_NORRIS_FAVORITES_LOCAL_STORAGE_KEY=your_local_storage_key NEXT_PUBLIC_CHUCK_NORRIS_RATED_LOCAL_STORAGE_KEY=your_local_storage_key
+    
+    NEXT_PUBLIC_CHUCK_NORRIS_FAVORITES_LOCAL_STORAGE_KEY=your_local_storage_key
+    
+    NEXT_PUBLIC_CHUCK_NORRIS_RATED_LOCAL_STORAGE_KEY=your_local_storage_key
     ```
 4. **Start the development server**:
     ```bash
