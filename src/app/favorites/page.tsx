@@ -6,7 +6,7 @@ import { useFavorites } from "../context/favorites-context";
 export default function Favorites() {
     const { favorites, removeFavorite } = useFavorites();
     return (
-        <section className="container mx-auto mt-30 mb-20">
+        <section className="container mx-auto mt-30 mb-20 p-4">
             <div className="mt-4">
                 <h1 className="text-3xl text-neutral-950 dark:text-neutral-50 font-bold mb-4">
                     My Favorites Jokes
@@ -16,7 +16,7 @@ export default function Favorites() {
                 {favorites.map((joke) => (
                     <div
                         key={joke.id}
-                        className="mt-4 max-w-[400px] border border-gray-300 rounded-xl p-4 flex flex-col justify-between items-start"
+                        className="mt-4 border border-gray-300 rounded-xl p-4 flex flex-col justify-between items-start"
                     >
                         <h2 className="text-lg text-neutral-950 dark:text-neutral-50 font-semibold mb-4">
                             {joke.value}

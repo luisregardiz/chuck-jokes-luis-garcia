@@ -29,7 +29,7 @@ export const CardJoke: FC<CardJokeProps> = ({
     isFavorite,
 }) => {
     return (
-        <div className="border border-gray-300 rounded-xl p-8 min-w-[650px] min-h-[250px]">
+        <div className="border border-gray-300 rounded-xl p-8 w-full min-h-[250px]">
             {loading && <Loader />}
             {error && <p>{error}</p>}
             {data && !loading && (

@@ -22,7 +22,7 @@ const DarkModeToggle: FC = () => {
     return (
         <button
             onClick={toggleDarkMode}
-            className="h-10 w-10  rounded-full bg-gray-200 dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center transition duration-200 hover:bg-gray-300 dark:hover:bg-neutral-700 cursor-pointer"
+            className="h-10 w-10  rounded-full bg-gray-200 dark:bg-neutral-800 text-black dark:text-white flex items-center justify-center transition duration-200 hover:bg-gray-300 dark:hover:bg-neutral-700 cursor-pointer mr-4"
             aria-label="Toggle Dark Mode"
         >
             <LucideSunMoon />
@@ -33,7 +33,7 @@ export const Navbar: FC = () => {
     const { favorites } = useFavorites();
     const { ratedJokes } = useRate();
     return (
-        <header className="relative ">
+        <header>
             <nav className="h-20 bg-white dark:bg-black  flex items-center justify-center fixed top-0 w-full">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="dark:text-white text-black font-bold">
@@ -49,36 +49,68 @@ export const Navbar: FC = () => {
                             </span>
                         </Link>
                     </div>
-                    <ul className="flex space-x-6">
-                        <li>
-                            <Link href="/" className="nav-item">
-                                New Joke
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/favorites" className="nav-item">
-                                Favorites{" "}
-                                {favorites.length > 0 && (
-                                    <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
-                                        {favorites.length}
-                                    </span>
-                                )}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/rated" className="nav-item">
-                                Rated{" "}
-                                {ratedJokes.length > 0 && (
-                                    <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
-                                        {ratedJokes.length}
-                                    </span>
-                                )}
-                            </Link>
-                        </li>
-                    </ul>
-                    <DarkModeToggle />
+                    <div className="flex items-center gap-12">
+                        <ul className="sm:flex hidden space-x-6 ">
+                            <li>
+                                <Link href="/" className="nav-item">
+                                    New Joke
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/favorites" className="nav-item">
+                                    Favorites{" "}
+                                    {favorites.length > 0 && (
+                                        <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
+                                            {favorites.length}
+                                        </span>
+                                    )}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/rated" className="nav-item">
+                                    Rated{" "}
+                                    {ratedJokes.length > 0 && (
+                                        <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
+                                            {ratedJokes.length}
+                                        </span>
+                                    )}
+                                </Link>
+                            </li>
+                        </ul>
+                        <DarkModeToggle />
+                    </div>
                 </div>
             </nav>
+            {/* Mobile Navigation */}
+            <div className="bg-white dark:bg-black sm:hidden fixed top-20 w-full">
+                <ul className="flex items-center justify-center space-x-6 ">
+                    <li>
+                        <Link href="/" className="nav-item">
+                            New Joke
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/favorites" className="nav-item">
+                            Favorites{" "}
+                            {favorites.length > 0 && (
+                                <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
+                                    {favorites.length}
+                                </span>
+                            )}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/rated" className="nav-item">
+                            Rated{" "}
+                            {ratedJokes.length > 0 && (
+                                <span className="ml-1 text-sm bg-red-500 text-white rounded-full px-2">
+                                    {ratedJokes.length}
+                                </span>
+                            )}
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         </header>
     );
 };

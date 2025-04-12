@@ -43,7 +43,7 @@ export default function Home() {
 
     return (
         <section className="max-w-2xl mx-auto ">
-            <div className="h-screen flex flex-col justify-center items-center">
+            <div className="h-screen flex flex-col justify-center items-center p-4">
                 <CardJoke
                     rate={rate}
                     data={data}
