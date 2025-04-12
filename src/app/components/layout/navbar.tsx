@@ -9,7 +9,7 @@ export const Navbar: FC = () => {
                     <div className="text-white text-lg font-semibold">
                         <Link href="/">Chuck Norris Random Joke</Link>
                     </div>
-                    <ul className="flex space-x-4">
+                    <ul className="flex space-x-6">
                         <li>
                             <Link
                                 href="/"
