@@ -3,4 +3,5 @@ interface ChuckNorrisJoke {
     id: string;
     url: string;
     value: string;
+    rate?: number;
 }

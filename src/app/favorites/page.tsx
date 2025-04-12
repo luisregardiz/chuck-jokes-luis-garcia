@@ -6,7 +6,7 @@ export default function Favorites() {
     const { favorites, removeFavorite } = useFavorites();
     return (
         <div>
-            <div className="mt-4">Chuck Norris Joke User</div>
+            <div className="mt-4">My Favorite Jokes</div>
             {favorites.map((joke) => (
                 <div key={joke.id} className="mt-4">
                     <h2 className="text-xl font-semibold">{joke.value}</h2>

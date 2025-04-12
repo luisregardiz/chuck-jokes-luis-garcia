@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/layout/navbar";
 import { FavoritesProvider } from "./context/favorites-context";
+import { RateProvider } from "./context/rate-context";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -29,8 +30,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${poppins.variable}  antialiased`}>
                 <FavoritesProvider>
-                    <Navbar />
-                    {children}
+                    <RateProvider>
+                        <Navbar />
+                        {children}
+                    </RateProvider>
                 </FavoritesProvider>
             </body>
         </html>
